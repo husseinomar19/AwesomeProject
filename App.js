@@ -1,12 +1,23 @@
-import React from 'react';
-import { StatusBar, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import Home from './src/compnenten/home';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar, StyleSheet, SafeAreaView ,Button} from 'react-native';
+import Home from './src/compnenten/Home';
+import Ard from './src/compnenten/Ard';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
-      <Home />
+    <NavigationContainer>
+        <StatusBar style="auto" />
+        <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+
+          <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="Ard" component={Ard} />
+        </Stack.Navigator>
+    </NavigationContainer>
     </SafeAreaView>
   );
 }
@@ -16,6 +27,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 13,
-
+  },
+  test:{
+    backgroundColor: '#000',
+    width:100,
   },
 });
