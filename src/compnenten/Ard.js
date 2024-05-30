@@ -1,5 +1,5 @@
 import { Text, View, TextInput, StyleSheet, Image, ScrollView, Button,TouchableOpacity } from 'react-native';
-export default function ard({ navigation }){
+export default function Ard({ navigation }){
     return(
         <>
         <View style={styles.hero}>

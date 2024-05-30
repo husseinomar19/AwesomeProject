@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar, StyleSheet, SafeAreaView ,Button} from 'react-native';
+import { StatusBar, StyleSheet, SafeAreaView ,Button ,} from 'react-native';
 import Home from './src/compnenten/Home';
 import Ard from './src/compnenten/Ard';
 
@@ -9,6 +9,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
+    
     <SafeAreaView style={styles.container}>
     <NavigationContainer>
         <StatusBar style="auto" />
@@ -19,6 +20,7 @@ export default function App() {
         </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaView>
+    
   );
 }
 
