@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, StyleSheet, Image, TouchableOpacity,ScrollView } from 'react-native';
 
 export default function Home({ navigation }) {
     const getDag = () => {
@@ -42,7 +42,9 @@ export default function Home({ navigation }) {
     }, [location]);
 
     return (
+       
         <View style={styles.hero}>
+             <ScrollView style={styles.scrollView}>
             <View style={styles.zoekenform}>
                 <TextInput
                     style={styles.inputstyle}
@@ -70,26 +72,7 @@ export default function Home({ navigation }) {
                     height={30}
                 />
             </View>
-            <View style={styles.nav}>
-                <TouchableOpacity onPress={() => navigation.navigate('Ard')}>
-                    <Image
-                        source={require('../../assets/ardbeving.png')}
-                        style={styles.navImage}
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Image
-                        source={require('../../assets/weer.png')}
-                        style={styles.navImage}
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Image
-                        source={require('../../assets/nav.png')}
-                        style={styles.navImage}
-                    />
-                </TouchableOpacity>
-            </View>
+            
             <View style={styles.weerinfo}>
                 <View style={styles.infoicon}>
                     <Image
@@ -111,7 +94,29 @@ export default function Home({ navigation }) {
                     <Text style={styles.infonum}>{weather ? `${weather.visibility} km/h` : 'Laden...'}</Text>
                 </View>
             </View>
+            </ScrollView>
+            <View style={styles.nav}>
+                <TouchableOpacity onPress={() => navigation.navigate('Ard')}>
+                    <Image
+                        source={require('../../assets/ardbeving.png')}
+                        style={styles.navImage}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                    <Image
+                        source={require('../../assets/weer.png')}
+                        style={styles.navImage}
+                    />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+                    <Image
+                        source={require('../../assets/nav.png')}
+                        style={styles.navImage}
+                    />
+                </TouchableOpacity>
+            </View>
         </View>
+      
     );
 }
 
@@ -150,7 +155,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     temp: {
-        fontSize: 80,
+        fontSize: 60,
     },
     cles: {
         fontSize: 20,
@@ -221,4 +226,5 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25,
     },
+    
 });

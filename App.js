@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar, StyleSheet, SafeAreaView ,Button ,} from 'react-native';
 import Home from './src/compnenten/Home';
 import Ard from './src/compnenten/Ard';
+import Bekijken from './src/compnenten/Bekijken';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ export default function App() {
 
           <Stack.Screen name="Home" component={Home}/>
           <Stack.Screen name="Ard" component={Ard} />
+          <Stack.Screen name="Bekijken" component={Bekijken} />
         </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaView>

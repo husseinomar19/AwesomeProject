@@ -1,4 +1,5 @@
 import { Text, View, TextInput, StyleSheet, Image, ScrollView, Button,TouchableOpacity } from 'react-native';
+import { aardbevingen } from './Ardbevingen';
 export default function Ard({ navigation }){
     return(
         <>
@@ -10,20 +11,17 @@ export default function Ard({ navigation }){
 
            <ScrollView style={styles.scrollView}>
                 <View style={styles.mainard}>
-                    {Array.from({ length: 16 }).map((_, index) => (
+                    {aardbevingen.map((item, index) => (
                         <View key={index} style={styles.aardbevingen}>
                             <View style={styles.ardTitle}>
-                            <Text style={styles.itemTitle}>Titel {index + 1}</Text>
-                            <Text style={styles.itemDate}>Datum: 2024-05-2{index}</Text>
+                            <Text style={styles.itemTitle}>{item.naam}</Text>
+                            <Text style={styles.itemDate}>Datum: {item.datum}</Text>
                             </View>
                             <Text style={styles.ardtekst}>
-                            Aardbevingen zijn trillingen in de aardkorst door plotselinge
-                            energievrijkomingen, vaak langs breuklijnen. Ze variëren van
-                            licht tot verwoestend en komen vooral voor bij tektonische
-                            platen. In Nederland zijn lichte bevingen door gaswinning soms voelbaar.
+                             {item.tekst}
                             </Text>
                             <View style={styles.ardlink}>
-                                <TouchableOpacity style={styles.bekijken}>
+                                <TouchableOpacity style={styles.bekijken}   onPress={() => navigation.navigate('Bekijken', { id: item.id })}>
                                     <Image
                                     source={require('../../assets/detie.png')}
                                     style={styles.zoekenicon}
@@ -111,7 +109,7 @@ const styles = StyleSheet.create({
 
     },
     itemTitle:{
-        fontSize:20,
+        fontSize:15,
         fontWeight:'bold'
     },
     ardtekst:{
